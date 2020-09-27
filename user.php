@@ -1,8 +1,9 @@
 <?php 
-
+session_start();
 $username = $_GET("username");
 
-echo phpinfo();
+phpinfo();
+echo "hello world ?";
 
 
 ?>
