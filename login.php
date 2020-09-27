@@ -20,8 +20,5 @@
 </html>
 
 <?php
-// session_start();
-// header("Location: user.php");
-//$username = $_GET("username");
-//echo "hello world ?";
+session_start();
 ?>
