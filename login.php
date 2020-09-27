@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,3 +18,10 @@ session_start();
     </form>
 </body>
 </html>
+
+<?php
+// session_start();
+// header("Location: user.php");
+//$username = $_GET("username");
+//echo "hello world ?";
+?>
