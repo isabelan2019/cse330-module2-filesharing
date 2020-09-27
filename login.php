@@ -1,14 +1,19 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Share</title>
+    <title>Login File Share</title>
 </head>
+
 <body>
     <h1> File Share</h1>
-    <h2> Log in to manage your files:</h2>
-    <form name ="input" action="fileshare.php" method="POST">
+    <h2> Log in to manage your files</h2>
+    <form name ="input" action="login.php" method="GET">
         <label> Username: </label>
         <input type="text" name="username">
         <input type="submit" value="Log In">
