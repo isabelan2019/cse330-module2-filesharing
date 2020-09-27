@@ -13,7 +13,7 @@ session_start();
 <body>
     <h1> File Share</h1>
     <h2> Log in to manage your files</h2>
-    <form name ="input" action="login.php" method="GET">
+    <form name ="input" action="user.php" method="GET">
         <label> Username: </label>
         <input type="text" name="username">
         <input type="submit" value="Log In">
