@@ -35,6 +35,7 @@ $username=$_SESSION['username'];
 
     //DELETE button appended that removes the file
         echo "<form action='delete.php' method='POST'>
+        <input type='hidden' name='file' value=$fileArray[$x]>
         <input type='submit' value='Delete'>
         </form>";
     }
