@@ -29,6 +29,7 @@ $username=$_SESSION['username'];
 
     //VIEW button appended that opens or downloads file in browser
         echo "<form action='view.php' method='POST'>
+        <input type='hidden' name='file' value=$fileArray[$x]>
         <input type='submit' value='View File'>
         </form>";
 

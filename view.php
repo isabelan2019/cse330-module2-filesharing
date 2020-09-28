@@ -4,7 +4,7 @@
 
 session_start();
 
-$filename = $_GET['file'];
+$filename = $_POST['file'];
 
 if( !preg_match('/^[\w_\.\-]+$/', $filename) ){
 	echo "Invalid filename";
