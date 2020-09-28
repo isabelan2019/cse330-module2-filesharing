@@ -22,7 +22,7 @@ $full_path = sprintf("/srv/fileshare_module/uploads/%s/%s", $username, $filename
 if( move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $full_path) ){
 	header("Location:main.php");
     exit;
-}else{
+}else{ 
 	header("Location: upload_failure.html");
 	exit;  
 }
