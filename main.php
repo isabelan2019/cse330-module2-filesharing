@@ -19,12 +19,12 @@ $username=$_SESSION['username'];
     <?php
     $filepath=sprintf("/srv/fileshare_module/uploads/%s/", $username);
     $fileArray= scandir($filepath);
-    $fixedFileArray = array_diff($fileArray, array('.', '..'));
+   // $fixedFileArray = array_diff($fileArray, array('.', '..'));
     
     echo "<ul>\n";
-    for ($x=0; $x<count($fixedFileArray); $x++){
+    for ($x=2; $x<count($fileArray); $x++){
         printf("\t<li>%s</li>\n",
-        $fileArray[$x+2]
+        $fileArray[$x]
         );
 
     //VIEW button appended that opens or downloads file in browser
