@@ -1,15 +1,14 @@
 <?php 
 session_start();
 
-$username = (string) $_GET["username"];
+$_SESSION['username'] = (string) $_GET["username"];
 $validUser = FALSE;
 
 //read file line by line 
-$h = fopen("/srv/users.txt", "r");
+$h = fopen("/srv/fileshare_module/users.txt", "r");
 
 while( !feof($h) ){
-    if (trim(fgets($h))=="$username"){
-    //    header("Location:main.html");
+    if (trim(fgets($h))==$_SESSION['username']){
         $validUser = TRUE;
         break;
     } 
@@ -18,10 +17,12 @@ while( !feof($h) ){
 fclose($h);
 
 if($validUser){
-    header("Location:main.html");
+    header("Location:main.php");
+    exit;
 }
 else{
     header("Location:login.html");
+    exit;
 }
 
 //$userarray = file("/srv/users.txt");
