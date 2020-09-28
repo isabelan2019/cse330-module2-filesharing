@@ -20,8 +20,8 @@ if( !preg_match('/^[\w_\-]+$/', $username) ){
 $full_path = sprintf("/srv/fileshare_module/uploads/%s/%s", $username, $filename);
 
 if( move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $full_path) ){
-	header("Location: upload_success.html");
-	exit;
+	header("Location:main.php");
+    exit;
 }else{
 	header("Location: upload_failure.html");
 	exit;
