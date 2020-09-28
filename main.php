@@ -38,6 +38,14 @@ $username=$_SESSION['username'];
         <input type='hidden' name='file' value=$fileArray[$x]>
         <input type='submit' value='Delete'>
         </form>";
+
+    //RENAME input allowing users to rename files
+        echo "<form action='rename.php' method='POST'>
+        <input type='hidden' name='file' value=$fileArray[$x]>
+        <input type='text' name='newName'>
+        <input type='submit' value='Rename'>
+        </form>
+        ";
     }
     echo "</ul>\n";
     ?>
