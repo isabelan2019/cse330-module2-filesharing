@@ -20,6 +20,7 @@ $username=$_SESSION['username'];
     $filepath=sprintf("/srv/fileshare_module/uploads/%s/", $username);
     $fileArray= scandir($filepath);
     $fixedFileArray = array_diff($fileArray, array('..', '.'));
+    
     echo "<ul>\n";
     for ($x=0; $x<count($fixedFileArray); $x++){
         printf("\t<li>%s</li>\n",
