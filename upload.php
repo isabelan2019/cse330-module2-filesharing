@@ -24,7 +24,7 @@ if( move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $full_path) ){
     exit;
 }else{
 	header("Location: upload_failure.html");
-	exit;
+	exit;  
 }
 
 ?>
