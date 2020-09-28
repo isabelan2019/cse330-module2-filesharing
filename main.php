@@ -14,6 +14,7 @@ $username=$_SESSION['username'];
     <h1> Welcome <?php echo "$username";?> ! </h1> <!--include username-->
     
     <h2> Your files </h2>
+
     <!--List files in user-file-->
     <?php
     $filepath=sprintf("/srv/fileshare_module/uploads/%s/", $username);
@@ -24,12 +25,14 @@ $username=$_SESSION['username'];
         printf("\t<li>%s</li>\n",
         $fixedFileArray[$x+2]
         );
+
     //VIEW button appended that opens or downloads file in browser
-        echo "<form action='view.php' method='GET'>
+        echo "<form action='view.php' method='POST'>
         <input type='submit' value='View File'>
         </form>";
+
     //DELETE button appended that removes the file
-        echo "<form action='delete.php' method='GET'>
+        echo "<form action='delete.php' method='POST'>
         <input type='submit' value='Delete'>
         </form>";
     }
@@ -40,12 +43,14 @@ $username=$_SESSION['username'];
     <form enctype="multipart/form-data" action="upload.php" method="POST">
         <p>
             <input type="hidden" name="MAX_FILE_SIZE" value="20000000" />
-            <label for="uploadfile_input">Choose a file to upload:</label> <input name="uploadedfile" type="file" id="uploadfile_input" />
+            <label for="uploadfile_input">Choose a file to upload:</label> 
+            <input name="uploadedfile" type="file" id="uploadfile_input" />
         </p>
         <p>
             <input type="submit" value="Upload File" />
         </p>
     </form>
+
     <!--buttom destroy session and redirect to login page-->
     <form action="logout.php" method="GET">
         <input type="submit" value="Log Out">
