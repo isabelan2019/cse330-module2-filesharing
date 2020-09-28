@@ -19,9 +19,10 @@ if( !preg_match('/^[\w_\-]+$/', $username) ){
 $full_path = sprintf("/srv/fileshare_module/uploads/%s/%s", $username, $filename);
 
 if (unlink($full_path)) {
-    echo "deleted";
+    header("Location:main.php");
+    exit;
 } else {
-    echo "not deleted";
+    echo "not deleted. go back and try again";
 }
 
 ?> 
