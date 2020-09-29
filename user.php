@@ -4,6 +4,10 @@ session_start();
 $_SESSION['username'] = (string) $_GET["username"];
 $validUser = FALSE;
 
+if( !preg_match('/^[\w_\-]+$/', $_SESSION['username']) ){
+	header("Location:login.html");
+	exit;
+}
 
 //read file line by line 
 $h = fopen("/srv/fileshare_module/users.txt", "r");
