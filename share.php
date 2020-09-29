@@ -6,6 +6,18 @@ $filename = $_POST['file'];
 $shareuser = (string) $_POST['usershare'];
 $validUser = FALSE;
 
+//filters the sharing username
+if( !preg_match('/^[\w_\-]+$/', $username) ){
+	echo htmlentities("Invalid username");
+	exit;
+}
+
+//filters the receiving username
+if( !preg_match('/^[\w_\-]+$/', $shareuser) ){
+	echo htmlentities("Invalid username");
+	exit;
+}
+
 $file = sprintf("/srv/fileshare_module/uploads/%s/%s", $username, $filename);
 
 //checks that the user receiving the shared file exists 
@@ -22,14 +34,13 @@ if($validUser){
     //execute copy and move file
     $shareuserFolder = sprintf("/srv/fileshare_module/uploads/%s/%s", $shareuser, $filename);
     copy ($file, $shareuserFolder);
-    echo htmlentities("shared! you may go back now");
+    //echo htmlentities("Your file has been shared.");
+    header("Location:main.php");
     exit;
 }
 else{
-    echo htmlentities("this user does not exist. please try again");
+    echo htmlentities("This user does not exist. Please try again with a valid username.");
     exit;
 }
-
-
 
 ?>
