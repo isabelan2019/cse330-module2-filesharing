@@ -47,6 +47,14 @@ $username= (string) $_SESSION['username'];
         <input type='submit' value='Rename'>
         </form>
         ";
+
+    //SHARE button and input to share file with other users 
+        echo "<form action='share.php' method='POST'>
+        <input type='hidden' name='file' value=$fileArray[$x]>
+        <input type='text' name='usershare'>
+        <input type='submit' value='Share'>
+        </form>
+        ";
     }
     echo "</ul>\n";
     ?>
