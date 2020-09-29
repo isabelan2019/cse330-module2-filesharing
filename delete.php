@@ -22,7 +22,7 @@ if (unlink($full_path)) {
     header("Location:main.php");
     exit;
 } else {
-    echo "not deleted. go back and try again";
+    echo htmlentities("not deleted. go back and try again");
 }
 
 ?> 
