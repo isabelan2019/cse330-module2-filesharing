@@ -1,16 +1,16 @@
-
 <?php
-
-//code from wiki (unchanged so far) 
 
 session_start();
 
 $filename = basename($_FILES['uploadedfile']['name']);
+
+//filters file name
 if( !preg_match('/^[\w_\.\-]+$/', $filename) ){
 	echo htmlentities("Invalid filename");
 	exit;
 }
 
+//filters user name
 $username = $_SESSION['username'];
 if( !preg_match('/^[\w_\-]+$/', $username) ){
 	echo htmlentities("Invalid username");
@@ -23,7 +23,7 @@ if( move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $full_path) ){
 	header("Location:main.php");
     exit;
 }else{ 
-	header("Location: upload_failure.html");
+	header("Location: failure.html");
 	exit; 
 }
 

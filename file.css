@@ -1,0 +1,17 @@
+body{
+    background-color: #dde7c7;
+    font-family: "Lucida Console", Monaco, monospace;
+    color:#216869;
+}
+
+h1,h2{
+    text-align: center;
+}
+
+input[type=submit]{
+    background-color: #216869;
+    color: #dde7c7;
+    font-family: "Lucida Console", Monaco, monospace;
+    border-radius: 25px;
+}
+

@@ -4,6 +4,7 @@ session_start();
 $_SESSION['username'] = (string) $_GET["username"];
 $validUser = FALSE;
 
+
 //read file line by line 
 $h = fopen("/srv/fileshare_module/users.txt", "r");
 while( !feof($h) ){
