@@ -1,6 +1,6 @@
 <?php
 session_start();
-$username=$_SESSION['username'];
+$username= (string) $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ $username=$_SESSION['username'];
     <title>File Share</title>
 </head>
 <body>
-    <h1> Welcome <?php echo "$username";?> ! </h1> <!--include username-->
+    <h1> Welcome, <?php echo htmlentities("$username");?> ! </h1> <!--include username-->
     
     <h2> Your files </h2>
 
@@ -25,7 +25,7 @@ $username=$_SESSION['username'];
     echo "<ul>\n";
     for ($x=2; $x<count($fileArray); $x++){
         printf("\t<li>%s</li>\n",
-        $fileArray[$x]
+        htmlentities($fileArray[$x])
         );
 
     //VIEW button appended that opens or downloads file in browser
@@ -52,6 +52,8 @@ $username=$_SESSION['username'];
     ?>
 
     <!--at the bottom in the center is upload button to upload a file-->
+    <h2>Upload Files</h2>
+    <p>Your files cannot contain any spaces, /, ^,$ </p>
     <form enctype="multipart/form-data" action="upload.php" method="POST">
         <p>
             <input type="hidden" name="MAX_FILE_SIZE" value="20000000" />

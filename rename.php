@@ -6,19 +6,19 @@ $oldname=sprintf("/srv/fileshare_module/uploads/%s/%s", $username, $filename);
 $newname = sprintf("/srv/fileshare_module/uploads/%s/%s", $username, $_POST['newName']);
 
 if( !preg_match('/^[\w_\.\-]+$/', $filename) ){
-	echo "Invalid filename";
+	echo htmlentities("Invalid filename");
 	exit;
 }
 
 if( !preg_match('/^[\w_\-]+$/', $username) ){
-	echo "Invalid username";
+	echo htmlentities("Invalid username");
 	exit;
 }
 
 if(rename($oldname, $newname)){
-    echo "yay";
+    echo htmlentities("yay");
 }
 else{
-    echo "nay";
+    echo htmlentities("nay");
 };
 ?>

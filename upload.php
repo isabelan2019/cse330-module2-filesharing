@@ -7,13 +7,13 @@ session_start();
 
 $filename = basename($_FILES['uploadedfile']['name']);
 if( !preg_match('/^[\w_\.\-]+$/', $filename) ){
-	echo "Invalid filename";
+	echo htmlentities("Invalid filename");
 	exit;
 }
 
 $username = $_SESSION['username'];
 if( !preg_match('/^[\w_\-]+$/', $username) ){
-	echo "Invalid username";
+	echo htmlentities("Invalid username");
 	exit;
 }
 
