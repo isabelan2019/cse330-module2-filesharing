@@ -5,19 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login </title>
+    <link href="file.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
     <h1> File Share</h1>
     <h2> Log in to manage your files</h2>
+
+    <!--Log in as existing user-->
     <form name ="input" action="user.php" method="GET">
         <label> Username: </label>
         <input type="text" name="username">
         <input type="submit" value="Log In">
     </form>
 
+    <!--Option to add a new user-->
     <h2>Not in the system ? Add yourself</h2>
-    <p>(english alphabet letters only)</p>
+    <p>(English alphabet letters only. Usernames are case-sensitive.)</p>
     <form action='adduser.php' method='GET'>
         <input type='text' name='newUser'>
         <input type='submit' value='Sign Up'>

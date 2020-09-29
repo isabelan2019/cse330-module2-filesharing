@@ -1,81 +1,93 @@
 <?php
-session_start();
-$username= (string) $_SESSION['username'];
+    session_start();
+    $username= (string) $_SESSION['username'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="fileshare.css" type="text/css" rel="stylesheet" />
+    <link href="file.css" type="text/css" rel="stylesheet" />
     <title>File Share</title>
 </head>
 <body>
-    <h1> Welcome, <?php echo htmlentities("$username");?> ! </h1> <!--include username-->
-    
+    <h1> Welcome, <?php echo htmlentities("$username");?> ! </h1>
+    <p> Click on the buttons to view or delete your file. Rename your files by entering in a valid file name. 
+        Valid file names cannot include spaces or special characters. 
+        You can also enter in another valid username in the system to send files to them.
+        Usernames are case sensitive. 
     <h2> Your files </h2>
-
-    <!--List files in user-file-->
+    <div>
     <?php
+   
+
+    //LIST files in a user's directory
     $filepath=sprintf("/srv/fileshare_module/uploads/%s/", $username);
     $fileArray= scandir($filepath);
-   // $fixedFileArray = array_diff($fileArray, array('.', '..'));
     
     echo "<ul>\n";
+
+    //loops through array output of files in directory
     for ($x=2; $x<count($fileArray); $x++){
-        printf("\t<li>%s</li>\n",
+        printf("\t\t<li>%s",
         htmlentities($fileArray[$x])
         );
 
     //VIEW button appended that opens or downloads file in browser
-        echo "<form action='view.php' method='POST'>
-        <input type='hidden' name='file' value=$fileArray[$x]>
-        <input type='submit' value='View File'>
-        </form>";
+        echo "\n\t\t\t<form action='view.php' method='POST'>
+        \t\t<input type='hidden' name='file' value=$fileArray[$x]>
+        \t\t<input type='submit' value='View File'>
+        \t</form>";
 
     //DELETE button appended that removes the file
-        echo "<form action='delete.php' method='POST'>
-        <input type='hidden' name='file' value=$fileArray[$x]>
-        <input type='submit' value='Delete'>
-        </form>";
+        echo "\n\t\t\t<form action='delete.php' method='POST'>
+        \t\t<input type='hidden' name='file' value=$fileArray[$x]>
+        \t\t<input type='submit' value='Delete'>
+        \t</form>";
 
     //RENAME input allowing users to rename files
-        echo "<form action='rename.php' method='POST'>
-        <input type='hidden' name='file' value=$fileArray[$x]>
-        <input type='text' name='newName'>
-        <input type='submit' value='Rename'>
-        </form>
-        ";
+        echo "\n\t\t\t<form action='rename.php' method='POST'>
+        \t\t<input type='hidden' name='file' value=$fileArray[$x]>
+        \t\t<input type='text' name='newName'>
+        \t\t<input type='submit' value='Rename'>
+        \t</form>";
 
     //SHARE button and input to share file with other users 
-        echo "<form action='share.php' method='POST'>
-        <input type='hidden' name='file' value=$fileArray[$x]>
-        <input type='text' name='usershare'>
-        <input type='submit' value='Share'>
-        </form>
+        echo "\n\t\t\t<form action='share.php' method='POST'>
+        \t\t<input type='hidden' name='file' value=$fileArray[$x]>
+        \t\t<input type='text' name='usershare'>
+        \t\t<input type='submit' value='Share'>
+        \t</form>
         ";
+        print("</li>\n");
     }
-    echo "</ul>\n";
-    ?>
 
-    <!--at the bottom in the center is upload button to upload a file-->
+    echo "\t</ul>\n";
+    ?>
+    </div>
+
+    <div>
+    <!--UPLOAD button to upload files-->
     <h2>Upload Files</h2>
-    <p>Your files cannot contain any spaces, /, ^,$ </p>
+    <p>Your file name cannot contain any spaces or special characters. </p>
     <form enctype="multipart/form-data" action="upload.php" method="POST">
         <p>
             <input type="hidden" name="MAX_FILE_SIZE" value="20000000" />
-            <label for="uploadfile_input">Choose a file to upload:</label> 
-            <input name="uploadedfile" type="file" id="uploadfile_input" />
+            <label for="uploadfile_input">Choose file:</label> 
+            <input name="uploadedfile" type="file" id="uploadfile_input"/>
         </p>
         <p>
             <input type="submit" value="Upload File" />
         </p>
     </form>
+    </div>
 
-    <!--buttom destroy session and redirect to login page-->
+
+    <!--LOG OUT button to log out and destroy session-->
     <form action="logout.php" method="GET">
         <input type="submit" value="Log Out">
     </form>
+
+
 </body>
 </html>
