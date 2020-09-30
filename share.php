@@ -14,7 +14,7 @@ if( !preg_match('/^[\w_\-]+$/', $username) ){
 
 //filters the receiving username
 if( !preg_match('/^[\w_\-]+$/', $shareuser) ){
-	echo htmlentities("Invalid username");
+    header("Location:failure.html");
 	exit;
 }
 
@@ -34,12 +34,11 @@ if($validUser){
     //execute copy and move file
     $shareuserFolder = sprintf("/srv/fileshare_module/uploads/%s/%s", $shareuser, $filename);
     copy ($file, $shareuserFolder);
-    //echo htmlentities("Your file has been shared.");
-    header("Location:main.php");
+    header("Location:success.html");
     exit;
 }
 else{
-    echo htmlentities("This user does not exist. Please try again with a valid username.");
+    header("Location:sharefailure.html");
     exit;
 }
 

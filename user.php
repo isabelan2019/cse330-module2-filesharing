@@ -5,7 +5,7 @@ $_SESSION['username'] = (string) $_GET["username"];
 $validUser = FALSE;
 
 if( !preg_match('/^[\w_\-]+$/', $_SESSION['username']) ){
-	header("Location:login.html");
+	header("Location:userfailure.html");
 	exit;
 }
 
@@ -24,7 +24,7 @@ if($validUser){
     exit;
 }
 else{
-    header("Location:login.html");
+    header("Location:userfailure.html");
     exit;
 }
 

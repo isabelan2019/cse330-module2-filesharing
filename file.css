@@ -14,4 +14,16 @@ input[type=submit]{
     font-family: "Lucida Console", Monaco, monospace;
     border-radius: 25px;
 }
-
+p {
+    text-align: center;
+}
+#welcome {
+    padding: 20px;
+}
+#logout , .loginform{
+    text-align: center;
+}
+#uploadbutton{
+    font-size: 15pt;
+    padding: 15px;
+}
