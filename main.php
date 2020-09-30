@@ -15,15 +15,18 @@
     <!--LOG OUT button to log out and destroy session-->
     <div id="logout"> 
         <form action="logout.php" method="GET">
-         Not you? <input type="submit" value="Log Out">
+         <p> Finished? </p> 
+         <input type="submit" value="Log Out">
         </form>
     </div>
-    <p id="welcome"> Click on the buttons to view or delete your file. Rename your files by entering in a valid file name. 
+    <div id="welcome">
+    <p > Click on the buttons to view or delete your file. Rename your files by entering in a valid file name. 
         Valid file names cannot include spaces or special characters. 
         You can also enter in another valid username in the system to send files to them.
-        Usernames are case sensitive. 
+        Usernames are case sensitive. </p>
+    </div>
     <h2> Your files </h2>
-    <div>
+    <div id="files">
     <?php
    
 

@@ -19,6 +19,8 @@ p {
 }
 #welcome {
     padding: 20px;
+    width: 50%;
+    margin: auto;
 }
 #logout , .loginform{
     text-align: center;
@@ -26,4 +28,11 @@ p {
 #uploadbutton{
     font-size: 15pt;
     padding: 15px;
+}
+ul{
+    width:50%;
+    margin:auto;
+}
+.redirect{
+    text-align:left;
 }
