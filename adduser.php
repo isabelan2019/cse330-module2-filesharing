@@ -5,7 +5,7 @@ $_SESSION['newUser'] = (string) $_GET["newUser"];
 
 //check if the new username is valid
 if( !preg_match('/^[\w_\-]+$/', $_SESSION['newUser']) ){
-	echo htmlentities("Invalid username. Try a username with no special characters.");
+	header("Location:userfailure.html");
 	exit;
 
 } else {
@@ -19,8 +19,7 @@ if( !preg_match('/^[\w_\-]+$/', $_SESSION['newUser']) ){
 	//adds user folder
 	$uploadFolder = sprintf("/srv/fileshare_module/uploads/%s", $newUser);
 	mkdir($uploadFolder, 0777, true);
-	// chmod($uploadFolder, 0777);
-	echo htmlentities("Done! Click the back button to return to the login page.");
+	header("Location:usersuccess.html");
 }
 
 ?>

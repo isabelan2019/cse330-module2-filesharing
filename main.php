@@ -12,7 +12,13 @@
 </head>
 <body>
     <h1> Welcome, <?php echo htmlentities("$username");?> ! </h1>
-    <p> Click on the buttons to view or delete your file. Rename your files by entering in a valid file name. 
+    <!--LOG OUT button to log out and destroy session-->
+    <div id="logout"> 
+        <form action="logout.php" method="GET">
+         Not you? <input id="logout" type="submit" value="Log Out">
+        </form>
+    </div>
+    <p id="welcome"> Click on the buttons to view or delete your file. Rename your files by entering in a valid file name. 
         Valid file names cannot include spaces or special characters. 
         You can also enter in another valid username in the system to send files to them.
         Usernames are case sensitive. 
@@ -61,7 +67,6 @@
         ";
         print("</li>\n");
     }
-
     echo "\t</ul>\n";
     ?>
     </div>
@@ -73,20 +78,17 @@
     <form enctype="multipart/form-data" action="upload.php" method="POST">
         <p>
             <input type="hidden" name="MAX_FILE_SIZE" value="20000000" />
-            <label for="uploadfile_input">Choose file:</label> 
+            <label for="uploadfile_input">Choose file:</label>
             <input name="uploadedfile" type="file" id="uploadfile_input"/>
         </p>
         <p>
-            <input type="submit" value="Upload File" />
+            <input id="uploadbutton" type="submit" value="Upload File" />
         </p>
     </form>
     </div>
 
 
-    <!--LOG OUT button to log out and destroy session-->
-    <form action="logout.php" method="GET">
-        <input type="submit" value="Log Out">
-    </form>
+    
 
 
 </body>

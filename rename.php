@@ -13,7 +13,7 @@ if( !preg_match('/^[\w_\.\-]+$/', $filename) ){
 
 //check if the new filename is valid
 if( !preg_match('/^[\w_\.\-]+$/', $_POST['newName']) ){
-	echo htmlentities("Your new file name is invalid. Please go back and try again.");
+	header("Location: failure.html");
 	exit;
 }
 
@@ -25,7 +25,7 @@ if( !preg_match('/^[\w_\-]+$/', $username) ){
 
 //rename file
 if(rename($oldname, $newname)){
-	header("Location:main.php");
+	header("Location:success.html");
 	exit;
 }
 else{

@@ -9,23 +9,30 @@
 </head>
 
 <body>
-    <h1> File Share</h1>
+    <h1> File Share</h1> 
+    <br> <br>
+
     <h2> Log in to manage your files</h2>
-
     <!--Log in as existing user-->
-    <form name ="input" action="user.php" method="GET">
-        <label> Username: </label>
-        <input type="text" name="username">
-        <input type="submit" value="Log In">
-    </form>
+    <div class="loginform">
+        <form name ="input" action="user.php" method="GET">
+            <label> Username: </label>
+            <input type="text" name="username">
+            <input type="submit" value="Log In">
+        </form> 
+    </div> <br> <br>
 
+    
     <!--Option to add a new user-->
     <h2>Not in the system ? Add yourself</h2>
     <p>(English alphabet letters only. Usernames are case-sensitive.)</p>
+    <div class="loginform">
     <form action='adduser.php' method='GET'>
+        <label> New username: </label>
         <input type='text' name='newUser'>
         <input type='submit' value='Sign Up'>
         </form>
+    </div>
 </body>
 </html>
 
