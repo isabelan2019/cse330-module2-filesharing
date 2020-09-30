@@ -22,7 +22,7 @@ if (unlink($full_path)) {
     header("Location:main.php");
     exit;
 } else {
-	header("Location:failure.html");
+	echo "Something went wrong. Go back and try again";
 	exit;
 }
 

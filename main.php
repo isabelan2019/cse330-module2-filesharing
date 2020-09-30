@@ -15,7 +15,7 @@
     <!--LOG OUT button to log out and destroy session-->
     <div id="logout"> 
         <form action="logout.php" method="GET">
-         Not you? <input id="logout" type="submit" value="Log Out">
+         Not you? <input type="submit" value="Log Out">
         </form>
     </div>
     <p id="welcome"> Click on the buttons to view or delete your file. Rename your files by entering in a valid file name. 
