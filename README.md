@@ -1,7 +1,10 @@
 # CSE330
-Student IDs:
-458267
-456941
+Contributors:
+Claire Irawan
+Isabel An
+
+About:
+File sharing system where users can upload and share files with other registered users. 
 
 Link to file sharing site: 
 http://ec2-18-188-149-204.us-east-2.compute.amazonaws.com/~isabel.an/module2_group/login.html
